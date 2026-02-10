@@ -1,19 +1,25 @@
-🛡️ Kernel Sentinel
-Smart Kernel Security Update Monitor
+Kernel Sentinel
 
+Smart Kernel Security Update Monitor
 By Indoushka
 
 📌 Overview
 
-Kernel Sentinel is a smart, modular, production-ready Linux tool designed to monitor Kernel security updates only, generate audit-ready JSON reports, and send real-time notifications.
+Kernel Sentinel is a smart, modular, production-ready Linux tool designed to:
+
+Monitor Kernel security updates only
+
+Generate audit-ready JSON reports
+
+Send real-time notifications (Email / Telegram)
 
 It automatically detects the system language and interacts with the user accordingly (Arabic / English).
 
 ✨ Key Features
 
-🧠 Smart: Automatically detects system language (Arabic / English)
+🧠 Smart: Automatically detects system language
 
-🧩 Modular Architecture (easy to maintain & extend)
+🧩 Modular Architecture: Easy to maintain & extend
 
 🛡️ Kernel-focused security monitoring
 
@@ -45,31 +51,41 @@ kernel-sentinel/
 
 ⚙️ Requirements
 
-Linux (Ubuntu / Debian)
+Linux: Ubuntu / Debian
 
-Python 3.8+
+Python: 3.8+
 
 systemd
 
 Root privileges
 
-Dependencies
+Dependencies:
+
+sudo apt update
 sudo apt install python3 python3-requests mailutils -y
 
 🚀 Installation
-# Create directories
+
+Create directories:
+
 sudo mkdir -p /usr/lib/kernel-sentinel
 sudo mkdir -p /var/log/kernel-sentinel/reports
 sudo mkdir -p /etc/kernel-sentinel
 
-# Copy files
+
+Copy files:
+
 sudo cp *.py config.json /usr/lib/kernel-sentinel/
 sudo cp systemd/kernel-sentinel.* /etc/systemd/system/
 
-# Permissions
+
+Set permissions:
+
 sudo chmod +x /usr/lib/kernel-sentinel/*.py
 
-# Enable service
+
+Enable and start service:
+
 sudo systemctl daemon-reload
 sudo systemctl enable kernel-sentinel.timer
 sudo systemctl start kernel-sentinel.timer
@@ -79,30 +95,26 @@ sudo python3 /usr/lib/kernel-sentinel/core.py --تحديث
 
 🌍 Language Support
 
-Kernel Sentinel automatically detects system language:
+Arabic: LANG=ar_*
 
-LANG=ar_* → Arabic output
+English: LANG=en_*
 
-LANG=en_* → English output
-
-No manual configuration required.
+No manual configuration required
 
 📬 Notifications Setup
-📧 Email
+Email
 
 Requires mailutils or configured SMTP
 
 Set admin email in reporter.py
 
-📢 Telegram
+Telegram
 
 Create a bot via @BotFather
 
-Get BOT_TOKEN
+Get BOT_TOKEN and CHAT_ID
 
-Get your CHAT_ID
-
-Add them in reporter.py
+Add them in reporter.py:
 
 TELEGRAM_BOT_TOKEN = "YOUR_TOKEN"
 TELEGRAM_CHAT_ID = "YOUR_CHAT_ID"
@@ -127,8 +139,6 @@ systemd native	✅	❌
 Open & extensible	✅	❌
 🧠 What “Modular” Means
 
-Each component works independently:
-
 core.py → Engine & language detection
 
 detector.py → Kernel update detection
@@ -139,14 +149,12 @@ reporter.py → Reports & notifications
 
 messages.py → Localization
 
-This makes the tool stable, maintainable, and enterprise-grade.
+Each component works independently. This ensures stability, maintainability, and enterprise-grade reliability.
 
 📜 License
 
-MIT License
-Free to use, modify, and distribute.
+MIT License – Free to use, modify, and distribute.
 
 ✍️ Author
 
-Indoushka
-Kernel Sentinel is built to leave a technical fingerprint in Linux security tooling.
+Indoushka – Kernel Sentinel is built to leave a technical fingerprint in Linux security tooling.
