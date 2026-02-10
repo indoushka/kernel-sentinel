@@ -1,0 +1,13 @@
+[Unit]
+Description=Kernel Sentinel Timer
+Requires=kernel-sentinel.service
+After=network-online.target
+
+[Timer]
+OnBootSec=10min
+OnUnitActiveSec=6h
+Persistent=true
+AccuracySec=1min
+
+[Install]
+WantedBy=timers.target
